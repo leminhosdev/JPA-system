@@ -3,10 +3,7 @@ package mainpack.dominio;
 import lombok.Builder;
 import lombok.Value;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -20,4 +17,8 @@ public class Rental {
     private Costumer costumer;
     private LocalDate rentalDate;
     private LocalDate returnDate;
+    @ManyToOne
+    private Movie movie;
+    @ManyToOne
+    private Costumer customer;
 }
