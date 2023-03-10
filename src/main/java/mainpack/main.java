@@ -12,6 +12,7 @@ public class main {
     public static void main(String[] args) {
 
        RentalService rs = new RentalService();
-        rs.addMovie();
+       // rs.addMovie();
+        rs.addCostumer();
     }
 }

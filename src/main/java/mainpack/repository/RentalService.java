@@ -25,6 +25,19 @@ public class RentalService {
         System.out.println("enter email");
         String email = scanner.nextLine();
         System.out.println("password: ");
-
+        String password = scanner.nextLine();
+       Costumer costumer = new Costumer( email, password);
+       // Costumer dudu = em.find(Costumer.class, );
+       // if(dudu == null){
+        //    System.out.println("n achou");
+    //    }
+        em.getTransaction().begin();
+        em.persist(costumer);
+        em.getTransaction().commit();
+        em.close();
+        ef.close();
+    }
+    public void rentMovie(){
+        System.out.println("what account you want to receive the movie");
     }
 }

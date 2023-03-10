@@ -1,25 +1,43 @@
 package mainpack.dominio;
 
-import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.Value;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-@Value
-@Builder
+
+@Getter
+@Setter
 @Entity
 public class Costumer implements Serializable {
     private static final long serialVersionUID = 1L;
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String email ;
-    private String password;
+    private Integer id = getId();
 
-   @OneToMany(mappedBy = "costumers")                                  //(mappedBy = "custumer", cascade = CascadeType.ALL)
+    private String email = getEmail();
+    private String password= " ";
+
+   @OneToMany(cascade = {CascadeType.MERGE}, mappedBy = "costumers")                                  //(mappedBy = "custumer", cascade = CascadeType.ALL)
     private List<Movie> movies;
+
+    public Costumer(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
+    public Costumer(Integer id, String email, String password) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+    }
+
+    public Costumer() {
+
+    }
 }
