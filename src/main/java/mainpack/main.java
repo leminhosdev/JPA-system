@@ -13,6 +13,7 @@ public class main {
 
        RentalService rs = new RentalService();
        // rs.addMovie();
-        rs.addCostumer();
+        //rs.addCostumer();
+        rs.rentMovie();
     }
 }
