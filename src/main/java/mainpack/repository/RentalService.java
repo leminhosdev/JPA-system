@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class RentalService {
@@ -60,6 +61,15 @@ public class RentalService {
             }
         }
     }
+    public List<Costumer> Listmovies(){
+        List<Costumer> Costumers = null;
+        Costumers = em.createQuery("From Costumer").getResultList();
 
 
+       // em.
+        return Costumers;
+    }
+        //public void fortop(){
+      //      for(Costumer c: )
+      //  }
 }
