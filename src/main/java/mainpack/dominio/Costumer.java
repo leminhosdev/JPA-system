@@ -4,18 +4,22 @@ import lombok.Builder;
 import lombok.Value;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-
+@Value
+@Builder
 @Entity
-public class Costumer {
+public class Costumer implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String email ;
     private String password;
 
-    @OneToMany(mappedBy = "costumer", cascade = CascadeType.ALL)
-    private Set<Rental> rentals = new HashSet<>();
+   @OneToMany(mappedBy = "costumers")                                  //(mappedBy = "custumer", cascade = CascadeType.ALL)
+    private List<Movie> movies;
 }
