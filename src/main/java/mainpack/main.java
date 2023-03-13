@@ -14,11 +14,9 @@ public class main {
        RentalService rs = new RentalService();
        // rs.addMovie();
         //rs.addCostumer();
-        //rs.rentMovie();
+      //  rs.rentMovie();
 
-            for(Costumer c: rs.Listmovies()){
-                System.out.println("movies: "+c.getMovies());
-            }
+            rs.Listmovies();
 
     }
 }
